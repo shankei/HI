@@ -5,13 +5,12 @@
 _Date: 18/07/19_
 
 1. Given a binary text and a pattern, search the number of times that pattern occurs in that string using hashing.
+Repeat the above questions for alphabets as input, alphabets in all cases and alphanumeric input.
 
 2. Given two binary strings and an integral value denoting the length, find if a pattern of the given length exists in both of the strings or not?
 |string1| + |string2| <= 1000000
 
 3. Given two binary strings, find the length of the longest pattern present in both the strings.
-
-4. Repeat the above questions for alphabets as input, alphabets in all cases and alphanumeric input.
 
 _Date: 19/07/19_
 
