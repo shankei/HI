@@ -8,13 +8,15 @@ typedef struct node
 	struct node *lchild,*rchild;
 }btree;
 
-void inorder(btree *root)
-{
-  if(root==NULL)return;
 
-  inorder(root->lchild);
-  cout<<root->info<<" ";
-  inorder(root->rchild);
+int height_of_tree(btree *root,int height)
+{
+  if(root==NULL)return -1;
+  int lc=height_of_tree(root->lchild,height);
+  int rc=height_of_tree(root->rchild,height);
+  height=(lc>rc)?lc+1:rc+1;
+    cout<<"node : "<<root->info<<" height : "<<height<<endl;
+    return height;
 }
 
 btree *find(btree *root,int p)
@@ -93,6 +95,7 @@ int main()
 {
 	btree *root;
 	root=make();
-	inorder(root);
+  height_of_tree(root,0);
+  cout<<endl;
 return 0;
 }

@@ -1,4 +1,5 @@
 //#include <bits/stdc++.h>
+// level order traversal without using bfs
 #include<iostream>
 #include<cstdlib>
 using namespace std;
@@ -8,13 +9,32 @@ typedef struct node
 	struct node *lchild,*rchild;
 }btree;
 
-void inorder(btree *root)
-{
-  if(root==NULL)return;
 
-  inorder(root->lchild);
-  cout<<root->info<<" ";
-  inorder(root->rchild);
+int max(int a,int b)
+{
+	if(a>b)
+		return a;
+	return b;
+}
+
+int height(btree *root)
+{
+	if(root==NULL)
+		return 0;
+	else return max(height(root->lchild),height(root->rchild))+1;
+}
+
+void print_level(btree *root,int level)
+{
+	if(root==NULL)
+		return;
+	if(level==1)
+		cout<<root->info;
+	else
+	{
+		print_level(root->lchild,level-1);
+		print_level(root->rchild,level-1);
+	}
 }
 
 btree *find(btree *root,int p)
@@ -93,6 +113,12 @@ int main()
 {
 	btree *root;
 	root=make();
-	inorder(root);
+  int ht=height(root);
+  	for(int i=ht;i>0;i--)
+  	{
+  		print_level(root,i);
+  cout<<endl;
+  	}
+  cout<<endl;
 return 0;
 }
