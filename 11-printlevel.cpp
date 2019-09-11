@@ -20,20 +20,20 @@ int max(int a,int b)
 int height(btree *root)
 {
 	if(root==NULL)
-		return 0;
+		return -1;
 	else return max(height(root->lchild),height(root->rchild))+1;
 }
 
-void print_level(btree *root,int level)
+void print_level(btree *root,int level,int l)
 {
 	if(root==NULL)
 		return;
-	if(level==1)
-		cout<<root->info;
+	if(level==l)
+		cout<<root->info<<" ";
 	else
 	{
-		print_level(root->lchild,level-1);
-		print_level(root->rchild,level-1);
+		print_level(root->lchild,level,l+1);
+		print_level(root->rchild,level,l+1);
 	}
 }
 
@@ -114,9 +114,10 @@ int main()
 	btree *root;
 	root=make();
   int ht=height(root);
-  	for(int i=ht;i>0;i--)
+	//cout<<ht<<endl;
+  	for(int i=0;i<=ht;i++)
   	{
-  		print_level(root,i);
+  		print_level(root,i,0);
   cout<<endl;
   	}
   cout<<endl;

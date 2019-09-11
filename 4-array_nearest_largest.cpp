@@ -1,4 +1,4 @@
-// given an array calculate array r such that r[i]=min j such that r[j]>=r[i];
+// given an array calculate array r such that r[i]=min j such that arr[j]>=arr[i];
 // r= position of nearest greatest no.to right side.
 #include<iostream>
 using namespace std;
